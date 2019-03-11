@@ -3,7 +3,7 @@ import scrapy
 import re
 
 
-class QuotesTalent(scrapy.Spider):
+class ZhilianSpider(scrapy.Spider):
     name = "zhilian_spider"
 
     def start_requests(self):
@@ -37,8 +37,8 @@ class QuotesTalent(scrapy.Spider):
         salary = response.css("div.info-money strong::text").get().split('元')[0].split('-')
 
         try:
-            max_salary = int(salary[1])*12
-            min_salary = int(salary[0])*12
+            max_salary = int(salary[1]) * 12
+            min_salary = int(salary[0]) * 12
         except:
             max_salary = int(salary[0]) * 12
             min_salary = int(salary[0]) * 12
